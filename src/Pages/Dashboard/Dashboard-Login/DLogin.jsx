@@ -168,7 +168,7 @@ const DLogin = () => {
               onChange={placementChange}
               className={"radiogroup"}
             >
-              <Radio.Button value="Patient" className={"radiobutton"}>
+              <Radio.Button value="Nurse" className={"radiobutton"}>
                 Patient
               </Radio.Button>
               <Radio.Button value="Doctor" className={"radiobutton"}>
@@ -183,8 +183,9 @@ const DLogin = () => {
             <img src={admin} alt="profile" />
           </div>
           <div>
+
             <form onSubmit={HandleSubmit}>
-              <h3>{placement} ID</h3>
+              <h3>ID</h3>
               <input
                 type="number"
                 name="ID"
