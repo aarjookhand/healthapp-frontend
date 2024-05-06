@@ -169,7 +169,7 @@ const DLogin = () => {
               className={"radiogroup"}
             >
               <Radio.Button value="Patient" className={"radiobutton"}>
-                Nurse
+                Patient
               </Radio.Button>
               <Radio.Button value="Doctor" className={"radiobutton"}>
                 Doctor
