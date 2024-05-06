@@ -59,43 +59,16 @@ const FrontPage = () => {
             </div>
             <FaUserNurse className="overviewIcon" />
           </div>
-          <div className="three commondiv">
-            <div>
-              <h1>{data?.patient}</h1>
-              <p>Patient</p>
-            </div>
-            <RiEmpathizeLine className="overviewIcon" />
-          </div>
-          <div className="six commondiv">
-            {" "}
-            <div>
-              <h1>{data?.admin}</h1>
-              <p>Admin</p>
-            </div>
-            <RiAdminLine className="overviewIcon" />
-          </div>
-          <div className="four commondiv">
-            {" "}
-            <div>
-              <h1>{data?.bed}</h1>
-              <p>Beds</p>
-            </div>
-            <FaBed className="overviewIcon" />
-          </div>
+         
+    
+          
 
-          <div className="five commondiv">
-            {" "}
-            <div>
-              <h1>{data?.ambulance}</h1>
-              <p>Ambulance</p>
-            </div>
-            <FaAmbulance className="overviewIcon" />
-          </div>
+          
           <div className="six commondiv">
             {" "}
             <div>
               <h1>{data?.appointment}</h1>
-              <p>Appointment</p>
+              <p>Your Appointments</p>
             </div>
             <BsFillBookmarkCheckFill className="overviewIcon" />
           </div>
@@ -103,18 +76,13 @@ const FrontPage = () => {
             {" "}
             <div>
               <h1>{data?.report}</h1>
-              <p>Reports</p>
+              <p>Your Report</p>
             </div>
             <MdPayment className="overviewIcon" />
           </div>
         </div>
         {/* ************************************* */}
-        <div className="patientDetails">
-          <h1>Patient Details</h1>
-          <div className="patientBox">
-            <Table columns={columns} dataSource={patients} />
-          </div>
-        </div>
+        
       </div>
     </div>
   );
