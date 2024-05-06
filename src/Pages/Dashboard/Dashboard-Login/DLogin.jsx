@@ -31,7 +31,7 @@ const DLogin = () => {
   const [Loading, setLoading] = useState(false);
   const [placement, SetPlacement] = useState("Nurse");
   const [formvalue, setFormvalue] = useState({
-    userName : "",
+    ID: "",
     password: "",
   });
   const dispatch = useDispatch();
@@ -43,23 +43,26 @@ const DLogin = () => {
   const HandleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    if (formvalue.userName !== "" && formvalue.password !== "") {
+    if (formvalue.ID !== "" && formvalue.password !== "") {
       if (placement === "Nurse") {
         let data = {
           ...formvalue,
+          nurseID: formvalue.ID,
         };
         dispatch(NurseLogin(data)).then((res) => {
-          if (res.data.sessionId ) {
-            console.log('in here');
+          if (res.message === "Successful") {
             notify("Login Successful");
             setLoading(false);
             return navigate("/dashboard");
           }
-          if (res.data.error) {
+          if (res.message === "Wrong credentials") {
             setLoading(false);
+
             notify("Wrong credentials");
-          }else{
+          }
+          if (res.message === "Error") {
             setLoading(false);
+
             notify("Something went Wrong, Please Try Again");
           }
         });
@@ -166,7 +169,7 @@ const DLogin = () => {
               className={"radiogroup"}
             >
               <Radio.Button value="Nurse" className={"radiobutton"}>
-                Patient
+                Nurse
               </Radio.Button>
               <Radio.Button value="Doctor" className={"radiobutton"}>
                 Doctor
@@ -183,10 +186,10 @@ const DLogin = () => {
             <p>ID - 100</p>
             <p>Password - masai</p>
             <form onSubmit={HandleSubmit}>
-              <h3>username</h3>
+              <h3>{placement} ID</h3>
               <input
-                type="text"
-                name="userName"
+                type="number"
+                name="ID"
                 value={formvalue.ID}
                 onChange={Handlechange}
                 required
